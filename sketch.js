@@ -44,8 +44,11 @@ text("Note: Press UP_ARROW Key To Feed The Dog Milk");
 }
 
 function writeStock(x){
-  database.ref('food').set({
-      food:x
-  })
-}
-
+   if(x<=0){
+      x=0; 
+  }
+   else { 
+     x=x-1; 
+    } 
+    database.ref('/').update({ Food:x })
+} 
